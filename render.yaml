@@ -5,6 +5,8 @@ services:
     rootDir: backend
     buildCommand: npm install
     startCommand: npm start
+    domains:
+      - api.bellaskitchen.online
     envVars:
       - key: PORT
         value: 5001
@@ -14,6 +16,9 @@ services:
     env: static
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
+    domains:
+      - bellaskitchen.online
+      - www.bellaskitchen.online
     routes:
       - type: rewrite
         source: /*
