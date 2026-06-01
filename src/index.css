@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --color-bg-dark: #0f1013;
+  --color-bg-chalk: #16181e;
+  --color-pink: #ff3377;
+  --color-pink-glow: rgba(255, 51, 119, 0.4);
+  --color-gold: #ffb800;
+  --color-gold-glow: rgba(255, 184, 0, 0.3);
+  --color-text-primary: #f3f4f6;
+  --color-text-secondary: #9ca3af;
+  --color-text-muted: #6b7280;
+  
+  --font-display: 'Outfit', sans-serif;
+  --font-handwritten: 'Dancing Script', cursive;
+}
+
+/* Base resets & layouts */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+  background-image: 
+    radial-gradient(circle at 50% 10%, rgba(255, 51, 119, 0.06) 0%, transparent 60%),
+    radial-gradient(circle at 10% 80%, rgba(255, 184, 0, 0.04) 0%, transparent 40%),
+    linear-gradient(rgba(22, 24, 30, 0.95), rgba(15, 16, 19, 0.98));
+  background-attachment: fixed;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 51, 119, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-pink);
+}
+
+/* Handwritten glows */
+.font-handwritten {
+  font-family: var(--font-handwritten);
+}
+
+.glow-pink-text {
+  text-shadow: 0 0 10px var(--color-pink-glow), 0 0 20px rgba(255, 51, 119, 0.1);
+}
+
+/* Smooth Fade in animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Custom transitions and states */
+button:active {
+  transform: scale(0.98);
+}
+
+/* Scrollbar hider helper */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
